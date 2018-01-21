@@ -19,6 +19,7 @@ html {
 
 body{
 	height: 100%;
+	background-color: #E7E7E7;
 }
 
 *, *:before, *:after {

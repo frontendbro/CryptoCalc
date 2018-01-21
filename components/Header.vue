@@ -1,7 +1,6 @@
 <template>
 	<header class="header">
-		<a href="#" class="header_logo"><img src="~/static/logo.png" width="300"></a>
-		<button class="header_button-menu">Menu</button>
+		<a href="#" class="header_logo"><img src="~/static/logo.png" width="200"></a>
 	</header>
 </template>
 
@@ -11,9 +10,9 @@
 
 <style>
 .header{
-	background-color: grey;
+	background-color: #4F5B68;
 	display: flex;
-	padding: 10px 15px;
+	padding: 10px 90px;
 	justify-content: space-between;
 }
 .header_logo{

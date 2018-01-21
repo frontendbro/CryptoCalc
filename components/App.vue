@@ -1,6 +1,5 @@
 <template>
 	<div class="Chart">
-		<h2>Chart</h2>
 		<LineChart />
 	</div>
 </template>
