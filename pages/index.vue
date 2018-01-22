@@ -31,13 +31,9 @@
 							</select>
 						</label>
 						<button @click.prevent="lookup" class="calc-form__button" v-if=" amount <= 10000000000">Result</button>
-
 					</form>
-
-					<!-- <li >{{amount}} {{currencies[choosenCode]}} = {{convert(code)}} {{currencies[choosenCurr]}}</li> -->
-
 					<ul v-if="rates != null" class="list-currency">
-						<li v-for="(name, code) in currencies" :key="code" class="item-currency">{{amount}} {{currencies[choosenCode]}} = {{convert(code)}} {{currencies[code]}}</li>
+						<li class="item-currency">{{amount}} {{currencies[choosenCode]}} = {{convert(choosenCurr)}} {{currencies[choosenCurr]}}</li>
 					</ul>
 				</div>
 				<div class="graph-wrap">
@@ -65,8 +61,8 @@ export default {
 				ETH: 'Ethereum',
 				LTC: 'Litecoin'
 			},
-			choosenCode: null,
-			choosenCurr: null,
+			choosenCode: 'USD',
+			choosenCurr: 'BTC',
 			amount: null,
 			rates: null,
 		}
@@ -77,11 +73,6 @@ export default {
 			this.$http.get('https://min-api.cryptocompare.com/data/price', {params}).then((Response)=>{
 				this.rates = Response.body;
 			});
-			// const codes = Object.keys(this.currencies).join(',');
-			// fetch(`https://min-api.cryptocompare.com/data/price?fsym=${this.choosenCode}&tsyms=${codes}`).then((Response)=>{
-			// 	console.log(Response);
-			// 	return Response.json().then((Data)=>{this.rates = Data});
-			// });
 		},
 		convert(code){
 			return this.rates[code] * this.amount;
